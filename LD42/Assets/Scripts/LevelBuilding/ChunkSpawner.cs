@@ -48,6 +48,7 @@ public class ChunkSpawner : MonoBehaviour
         GameObject spawnedChunk = _InstantiatedChunks.Pop();
         spawnedChunk.transform.position = new Vector3(_ChunkSpawnTransform.position.x, 0, 0);
         spawnedChunk.SetActive(true);
+        spawnedChunk.GetComponent<Chunk>().chunkSpawner = this;
     }
 
     public void RecycleChunk(GameObject instantiatedObject)

@@ -14,5 +14,9 @@ public class Chunk: MonoBehaviour
         }
     }
 
-
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("MORE HI: " + other.name);
+        _ChunkSpawner.RecycleChunk(gameObject);
+    }
 }
