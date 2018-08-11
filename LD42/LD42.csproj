@@ -286,11 +286,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Camera\ObjectFollowY.cs" />
-    <Compile Include="Assets\Scripts\LevelBuilder\LevelBuilder.cs" />
+    <Compile Include="Assets\Scripts\LevelBuilding\Chunk.cs" />
+    <Compile Include="Assets\Scripts\LevelBuilding\ChunkSpawner.cs" />
     <Compile Include="Assets\Scripts\Messenger\Callback.cs" />
     <Compile Include="Assets\Scripts\Messenger\MessageTypes.cs" />
     <Compile Include="Assets\Scripts\Messenger\Messenger.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipBehaviorController.cs" />
+    <Compile Include="Assets\Scripts\TimeAuthority.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
