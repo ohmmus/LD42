@@ -22,11 +22,13 @@ public class TimeAuthority
         }
     }
     
-    public static bool timeFrozen
+    public static float RawDeltaTime
     {
-        set
-        {
-            _timeFrozen = value;
-        }
+        get { return Time.deltaTime;  }
+    }
+
+    public static void ToggleTimeFrozen()
+    {
+        _timeFrozen = !_timeFrozen;
     }
 }

@@ -374,13 +374,13 @@ GameObject:
   - component: {fileID: 4927614971426954}
   - component: {fileID: 54740362189475630}
   - component: {fileID: 65453278892079080}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Collector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1823794128966560
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,7 +690,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168997331168124}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.09, y: -0.51, z: 0}
+  m_LocalPosition: {x: 139.66, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4697927648960892}
@@ -769,7 +769,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823794128966560}
   m_LocalRotation: {x: 0, y: 0, z: -0.04850116, w: 0.99882317}
-  m_LocalPosition: {x: -21.17, y: 4.92, z: 0}
+  m_LocalPosition: {x: -21.17, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4225321958758274}
@@ -1634,6 +1634,7 @@ MonoBehaviour:
   _StartingSeparationDistance: 1
   _ChunkPrefab: {fileID: 1985763505041274, guid: 19ed8a21c425ffb44a19b09736baca5b,
     type: 2}
+  _SpawnRate: 0.5
 --- !u!114 &114874118165250170
 MonoBehaviour:
   m_ObjectHideFlags: 1

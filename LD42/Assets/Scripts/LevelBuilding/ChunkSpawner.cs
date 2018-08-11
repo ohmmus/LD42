@@ -12,13 +12,17 @@ public class ChunkSpawner : MonoBehaviour
 
     private Transform _ChunkSpawnTransform = null;
 
-    private float _CurrentSeparationDistance = 1.0f;
+    private float _CurrentSeparationDistance = 50.0f;
 
+    [SerializeField]
     private float _SpawnRate = 1.0f;
+
     private float _SpawnTimer = 0.0f;
 
     private Stack<GameObject> _InstantiatedChunks = null;
-    
+
+    private float _MinimumSeparationDistance = 20;
+
     protected void Start()
     {
         _InstantiatedChunks = new Stack<GameObject>();
@@ -28,6 +32,7 @@ public class ChunkSpawner : MonoBehaviour
         {
             GameObject newChunk = Instantiate(_ChunkPrefab); ;
             newChunk.SetActive(false);
+            newChunk.GetComponent<Chunk>().chunkSpawner = this;
             _InstantiatedChunks.Push(newChunk);
         }
     }
@@ -40,6 +45,7 @@ public class ChunkSpawner : MonoBehaviour
         {
             _SpawnTimer = 0;
             SpawnChunk();
+            _CurrentSeparationDistance = Mathf.Clamp(--_CurrentSeparationDistance, _MinimumSeparationDistance, _CurrentSeparationDistance);
         }
     }
 
@@ -48,7 +54,9 @@ public class ChunkSpawner : MonoBehaviour
         GameObject spawnedChunk = _InstantiatedChunks.Pop();
         spawnedChunk.transform.position = new Vector3(_ChunkSpawnTransform.position.x, 0, 0);
         spawnedChunk.SetActive(true);
-        spawnedChunk.GetComponent<Chunk>().chunkSpawner = this;
+
+        Chunk chunkCompo = spawnedChunk.GetComponent<Chunk>();
+        chunkCompo.Randomize(_CurrentSeparationDistance);
     }
 
     public void RecycleChunk(GameObject instantiatedObject)
