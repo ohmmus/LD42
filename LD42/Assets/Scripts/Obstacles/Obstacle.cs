@@ -58,7 +58,8 @@ public class Obstacle : MonoBehaviour
             }
         }
 
-        _TransformComp.Rotate(Vector3.forward, _RotationSpeed * TimeAuthority.RawDeltaTime);
+        float deltaTime = TimeAuthority.RawDeltaTime * (TimeAuthority.timeFrozen ? 0.25f : 1.0f);
+        _TransformComp.Rotate(Vector3.forward, _RotationSpeed * deltaTime);
     }
 
     private void BlipShatterPieces()
@@ -85,6 +86,6 @@ public class Obstacle : MonoBehaviour
 
         _GrowthComponent.RandomizeGrowthParams();
         _LifeTimer = _LifeTimeDuration;
-        _RotationSpeed = Random.Range(-45, 45);
+        _RotationSpeed = Random.Range(45, 90);
     }
 }

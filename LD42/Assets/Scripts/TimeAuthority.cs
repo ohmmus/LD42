@@ -35,5 +35,6 @@ public class TimeAuthority
     public static bool timeFrozen
     {
         set { _timeFrozen = value; }
+        get { return _timeFrozen;  }
     }
 }

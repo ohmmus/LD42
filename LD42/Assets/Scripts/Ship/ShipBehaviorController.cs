@@ -18,16 +18,40 @@ public class ShipBehaviorController : MonoBehaviour
 
     private Collider _ColliderComp = null;
 
+    private bool _TimeFrozenLastFrame = false;
+    private bool _IsDying = false;
+
+    private AudioSource _ShipAudioSource = null;
+    public AudioClip TimeSpeedUp = null;
+    public AudioClip TimeSlowDown = null;
+    public AudioClip ShipExplode = null;
+
     private void Start()
     {
         _TransformComponent = transform;
         _ColliderComp = GetComponent<Collider>();
+        _ShipAudioSource = GetComponent<AudioSource>();
+        _IsDying = false;
     }
 
     private void Update()
     {
-        // Mechanic test: Hold down Space to freeze time. 
+        if (_IsDying)
+        {
+            return;
+        }
+
         TimeAuthority.timeFrozen = Input.GetKey(KeyCode.Space);
+
+        if (_TimeFrozenLastFrame && !TimeAuthority.timeFrozen)
+        {
+            // UNFREEZING
+            _ShipAudioSource.PlayOneShot(TimeSpeedUp);
+        }
+        else if (!_TimeFrozenLastFrame && TimeAuthority.timeFrozen)
+        {
+            _ShipAudioSource.PlayOneShot(TimeSlowDown);
+        }
 
         Vector3 shipPos = _TransformComponent.position;
 
@@ -61,6 +85,8 @@ public class ShipBehaviorController : MonoBehaviour
         }
 
         _PitchAngle = Mathf.Clamp(_PitchAngle, -45.0f, 45.0f);
+
+        _TimeFrozenLastFrame = TimeAuthority.timeFrozen;
     }
 
     private void FixedUpdate()
@@ -83,6 +109,14 @@ public class ShipBehaviorController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        _ShipAudioSource.PlayOneShot(ShipExplode);
+        _IsDying = true;
+        Invoke("GameOver", 0.2f);
+    }
+
+    private void GameOver()
+    {
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
+
     }
 }

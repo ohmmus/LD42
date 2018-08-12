@@ -25,7 +25,7 @@ public class ObstacleSpawner : MonoBehaviour
         _InstantiatedObstacles = new Stack<GameObject>();
         _SpawnXPos = transform.position.x;
 
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 50; i++)
         {
             GameObject newObstacle = Instantiate(_ObstaclePrefab);
             newObstacle.GetComponent<Obstacle>().obstacleSpawner = this;

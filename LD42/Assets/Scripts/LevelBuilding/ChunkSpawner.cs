@@ -26,7 +26,7 @@ public class ChunkSpawner : MonoBehaviour
         _InstantiatedChunks = new Stack<GameObject>();
         _ChunkSpawnTransform = transform;
 
-        for (int i = 0; i < 150; i++)
+        for (int i = 0; i < 50; i++)
         {
             GameObject newChunk = Instantiate(_ChunkPrefab);
             newChunk.GetComponent<Chunk>().chunkSpawner = this;
