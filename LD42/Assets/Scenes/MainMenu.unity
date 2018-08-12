@@ -992,7 +992,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 990962880}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1018,7 +1018,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Release\nSPACEBAR to \nStart! "
+  m_Text: "Release\nSPACEBAR \nto Start! "
 --- !u!222 &990962883
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1865,7 +1865,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Arrow Key \nto change \nship's pitch"
+  m_Text: "Arrow Key \nto change \nship's \npitch"
 --- !u!222 &1841366365
 CanvasRenderer:
   m_ObjectHideFlags: 0

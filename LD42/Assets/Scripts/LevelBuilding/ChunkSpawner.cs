@@ -12,7 +12,7 @@ public class ChunkSpawner : MonoBehaviour
     private float _CurrentSeparationDistance = 70.0f; 
 
     [SerializeField]
-    private float _SpawnRate = 1.0f;
+    private float _SpawnRate = 3.0f;
 
     private float _SpawnTimer = 0.0f;
 
@@ -20,6 +20,8 @@ public class ChunkSpawner : MonoBehaviour
 
     private float _MinimumSeparationDistance = 80;
     private float _MaximumSeparationDistance = 90;
+
+    private float _CurrentMaxSepDistance = 0;
 
     protected void Start()
     {
@@ -34,6 +36,7 @@ public class ChunkSpawner : MonoBehaviour
         }
 
         _CurrentSeparationDistance = Random.Range(_MinimumSeparationDistance, _MaximumSeparationDistance);
+        _CurrentMaxSepDistance = _MaximumSeparationDistance;
     }
 
     protected void Update()
@@ -42,9 +45,12 @@ public class ChunkSpawner : MonoBehaviour
 
         if (_SpawnTimer >= _SpawnRate)
         {
+            _SpawnRate = Mathf.Clamp(_SpawnRate, 0.3f, 10.0f);
+
             _SpawnTimer = 0;
             SpawnChunk();
-            _CurrentSeparationDistance = Random.Range(_MinimumSeparationDistance, _MaximumSeparationDistance);
+            _CurrentSeparationDistance = Random.Range(_MinimumSeparationDistance, _CurrentMaxSepDistance -= TimeAuthority.DeltaTime);
+            _CurrentMaxSepDistance = Mathf.Clamp(_CurrentMaxSepDistance, _MinimumSeparationDistance + 10, _CurrentMaxSepDistance);
         }
     }
 

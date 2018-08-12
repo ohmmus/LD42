@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     private float _SpawnXPos = 150.0f;
-    private float _SpawnRate = 0.35f;
+    private float _SpawnRate = 5.0f;
 
     private float _SpawnTimer = 0;
 
@@ -18,12 +18,13 @@ public class ObstacleSpawner : MonoBehaviour
 
     private Stack<GameObject> _InstantiatedObstacles = null;
     private bool _AllowObstacleSpawns = false;
-    private float _ObstacleSpawnDelay = 5.0f; // Seconds between game start and first obstacles start to spawn.
+    private float _ObstacleSpawnDelay = 3.0f; // Seconds between game start and first obstacles start to spawn.
 
     protected void Start()
     {
         _InstantiatedObstacles = new Stack<GameObject>();
         _SpawnXPos = transform.position.x;
+        _SpawnRate = 6.0f;
 
         for (int i = 0; i < 50; i++)
         {
@@ -51,6 +52,10 @@ public class ObstacleSpawner : MonoBehaviour
         {
             _SpawnTimer = 0;
             SpawnObstacle();
+
+            _SpawnRate -= 0.35f;
+
+            _SpawnRate = Mathf.Clamp(_SpawnRate, 0.35f, 5.0f);
         }
     }
 
