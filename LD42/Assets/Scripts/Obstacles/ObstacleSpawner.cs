@@ -58,7 +58,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         GameObject spawnedObstacle = _InstantiatedObstacles.Pop();
 
-        float yPos = Random.Range(_MinYRange, _MaxYRange);
+        float yPos = Mathf.Sin(Time.timeSinceLevelLoad) * _MaxYRange;
 
         _SpawnXPos = transform.position.x;
         spawnedObstacle.transform.position = new Vector3(_SpawnXPos, yPos, 0);

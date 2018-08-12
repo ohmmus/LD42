@@ -5,12 +5,17 @@ public class ScoreKeeper : MonoBehaviour
 {
     public Text ScoreValText = null;
 
-    private float _ScoreVal = 0;
+    public float _ScoreVal = 0;
 
     private void OnEnable()
     {
         _ScoreVal = 0;
         ScoreValText.text = _ScoreVal.ToString("0");
+    }
+
+    private void OnDisable()
+    {
+        ScorePersistent.RecentScore = _ScoreVal;
     }
 
     private void Update()

@@ -8,22 +8,23 @@ public class ShipBehaviorController : MonoBehaviour
     [SerializeField]
     private Transform _LineTraceEnding =  null;
     private Transform _TransformComponent = null;
+
+    [SerializeField]
     private float _ThrustForce = 70.0f;
-    private float _PitchAngle = 0.0f; // 0 is horizontal.
+    public float _PitchAngle = 0.0f; // 0 is horizontal.
 
     private float _PitchRate = 85.0f;
 
     private bool _PitchingUp = false;
     private bool _PitchingDown = false;
 
-    private Collider _ColliderComp = null;
 
     private bool _TimeFrozenLastFrame = false;
     private bool _IsDying = false;
 
+    public LineRenderer LaserPointer = null; 
+
     public AudioSource _ShipAudioSource = null;
-
-
     public AudioSource _MusicAudioSource = null;
 
     public AudioClip TimeSpeedUp = null;
@@ -33,7 +34,6 @@ public class ShipBehaviorController : MonoBehaviour
     private void Start()
     {
         _TransformComponent = transform;
-        _ColliderComp = GetComponent<Collider>();
         _ShipAudioSource = GetComponent<AudioSource>();
         _IsDying = false;
     }
@@ -51,12 +51,16 @@ public class ShipBehaviorController : MonoBehaviour
         {
             // UNFREEZING
             _ShipAudioSource.PlayOneShot(TimeSpeedUp);
+            _MusicAudioSource.volume = 0.35f;
             _MusicAudioSource.pitch = 1.0f;
+            LaserPointer.gameObject.SetActive(false);
         }
         else if (!_TimeFrozenLastFrame && TimeAuthority.timeFrozen)
         {
             _ShipAudioSource.PlayOneShot(TimeSlowDown);
-            _MusicAudioSource.pitch = 0.45f;
+            _MusicAudioSource.volume = 0.15f;
+            _MusicAudioSource.pitch = 0.6f;
+            LaserPointer.gameObject.SetActive(true);
         }
 
         Vector3 shipPos = _TransformComponent.position;
@@ -122,7 +126,6 @@ public class ShipBehaviorController : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
-
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

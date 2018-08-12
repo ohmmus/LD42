@@ -283,6 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ScoreValText: {fileID: 897524115}
+  _ScoreVal: 0
 --- !u!1 &552350385
 GameObject:
   m_ObjectHideFlags: 0
@@ -470,7 +471,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 1572039754
+  randomSeed: -1919690286
   InitialModule:
     serializedVersion: 3
     enabled: 1

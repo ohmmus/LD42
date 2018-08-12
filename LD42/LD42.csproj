@@ -301,8 +301,10 @@
     <Compile Include="Assets\Scripts\Obstacles\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\Obstacles\ShatterPiece.cs" />
     <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
+    <Compile Include="Assets\Scripts\ScorePersistent.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipBehaviorController.cs" />
     <Compile Include="Assets\Scripts\TimeAuthority.cs" />
+    <Compile Include="Assets\Scripts\UI\GameOver.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OUButton.cs" />
     <Compile Include="Assets\Scripts\VFX\ParticleSystemTimeController.cs" />

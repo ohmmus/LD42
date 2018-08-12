@@ -21,7 +21,6 @@ public class Chunk: MonoBehaviour
     [SerializeField]
     private Renderer _BottomRenderer = null;
 
-    private bool _ColorCooldown = false;
 
     public ChunkSpawner chunkSpawner
     {
