@@ -6,6 +6,8 @@ public class ShatterPiece : MonoBehaviour
 {
     private Rigidbody _RigidbodyComp = null;
 
+    private bool _ColorCooldown = false;
+
     public void Start()
     {
         _RigidbodyComp = GetComponent<Rigidbody>();
@@ -29,6 +31,14 @@ public class ShatterPiece : MonoBehaviour
             _RigidbodyComp.velocity = Vector3.zero;
 
             _RigidbodyComp.AddForce(dir * force);
+        }
+    }
+
+    public void OnCollided()
+    {
+        if (!_ColorCooldown)
+        {
+            _ColorCooldown = true;
         }
     }
 

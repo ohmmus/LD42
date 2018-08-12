@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShipBehaviorController : MonoBehaviour
 {
+    public LayerMask LineTraceLayerMask = -1;
+
+    [SerializeField]
+    private Transform _LineTraceEnding =  null;
     private Transform _TransformComponent = null;
     private float _ThrustForce = 70.0f;
     private float _PitchAngle = 0.0f; // 0 is horizontal.
@@ -11,9 +16,12 @@ public class ShipBehaviorController : MonoBehaviour
     private bool _PitchingUp = false;
     private bool _PitchingDown = false;
 
+    private Collider _ColliderComp = null;
+
     private void Start()
     {
         _TransformComponent = transform;
+        _ColliderComp = GetComponent<Collider>();
     }
 
     private void Update()
@@ -53,5 +61,29 @@ public class ShipBehaviorController : MonoBehaviour
         }
 
         _PitchAngle = Mathf.Clamp(_PitchAngle, -45.0f, 45.0f);
+    }
+
+    private void FixedUpdate()
+    {
+        Ray directionForSphereCast = new Ray(transform.position, (_LineTraceEnding.position - transform.position));
+        RaycastHit hitInfo;
+
+        if (Physics.SphereCast(directionForSphereCast, 1, out hitInfo, 32, LineTraceLayerMask))
+        {
+            if (hitInfo.transform.name.Contains("Chunk"))
+            {
+                hitInfo.transform.GetComponent<Chunk>().OnCollided();
+            }
+            else if (hitInfo.transform.name.Contains("Cube"))
+            {
+                hitInfo.transform.GetComponent<Renderer>().material.color = Color.blue;
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log("SHIP HIT " + other.name);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }

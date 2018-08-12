@@ -294,6 +294,7 @@
     <Compile Include="Assets\Scripts\Camera\ObjectFollowY.cs" />
     <Compile Include="Assets\Scripts\LevelBuilding\Chunk.cs" />
     <Compile Include="Assets\Scripts\LevelBuilding\ChunkSpawner.cs" />
+    <Compile Include="Assets\Scripts\Obstacles\ColorLerper.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Exploder.cs" />
     <Compile Include="Assets\Scripts\Obstacles\GrowthController.cs" />
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />

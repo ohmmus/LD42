@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour
 
     private Transform _TransformComp = null;
 
-    private float _RotationSpeed = 720.0f;
+    private float _RotationSpeed = 180.0f;
 
     private bool _Exploding = false;
     private float _ExplodeDuration = 4.0f;
@@ -58,7 +58,7 @@ public class Obstacle : MonoBehaviour
             }
         }
 
-        _TransformComp.Rotate(Vector3.forward, _RotationSpeed * TimeAuthority.DeltaTime);
+        _TransformComp.Rotate(Vector3.forward, _RotationSpeed * TimeAuthority.RawDeltaTime);
     }
 
     private void BlipShatterPieces()

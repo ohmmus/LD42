@@ -9,7 +9,7 @@ public class ChunkSpawner : MonoBehaviour
 
     private Transform _ChunkSpawnTransform = null;
 
-    private float _CurrentSeparationDistance = 50.0f; 
+    private float _CurrentSeparationDistance = 70.0f; 
 
     [SerializeField]
     private float _SpawnRate = 1.0f;

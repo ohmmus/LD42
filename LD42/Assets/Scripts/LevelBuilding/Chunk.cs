@@ -15,6 +15,14 @@ public class Chunk: MonoBehaviour
     private float _LifeTimer = 0;
     private float _LifeTimeDuration = 5.0f;
 
+    [SerializeField]
+    private Renderer _TopRenderer = null;
+
+    [SerializeField]
+    private Renderer _BottomRenderer = null;
+
+    private bool _ColorCooldown = false;
+
     public ChunkSpawner chunkSpawner
     {
         set
@@ -30,6 +38,9 @@ public class Chunk: MonoBehaviour
 
     public void Randomize(float currentSeparation)
     {
+        _TopRenderer.material.color = Color.red;
+        _BottomRenderer.material.color = Color.red;
+
         _TopWall.position = new Vector3(_TopWall.position.x, currentSeparation, _TopWall.position.z);
         _BottomWall.position = new Vector3(_BottomWall.position.x, -currentSeparation, _BottomWall.position.z);
         _LifeTimer = _LifeTimeDuration;
@@ -43,5 +54,17 @@ public class Chunk: MonoBehaviour
         {
             _ChunkSpawner.RecycleChunk(gameObject);
         }
+
+        if (_BottomRenderer.material.color != Color.red || _TopRenderer.material.color != Color.red)
+        {
+            _TopRenderer.material.color = Color.Lerp(_TopRenderer.material.color, Color.red, .5f * TimeAuthority.RawDeltaTime);
+            _BottomRenderer.material.color = Color.Lerp(_BottomRenderer.material.color, Color.red, .5f * TimeAuthority.RawDeltaTime);
+        }
+    }
+
+    public void OnCollided()
+    {
+        _TopRenderer.material.color = Color.blue;
+        _BottomRenderer.material.color = Color.blue;
     }
 }
