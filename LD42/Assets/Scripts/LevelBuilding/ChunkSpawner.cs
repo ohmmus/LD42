@@ -22,16 +22,21 @@ public class ChunkSpawner : MonoBehaviour
     private Stack<GameObject> _InstantiatedChunks = null;
 
     private float _MinimumSeparationDistance = 20;
+    private float _MaximumSeparationDistance = 70;
+
+
+    [SerializeField]
+    private GameObject _DebrisPrefab = null;
+    private GameObject _InstantiatedDebris = null;
 
     protected void Start()
     {
         _InstantiatedChunks = new Stack<GameObject>();
         _ChunkSpawnTransform = transform;
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 30; i++)
         {
-            GameObject newChunk = Instantiate(_ChunkPrefab); ;
-            newChunk.SetActive(false);
+            GameObject newChunk = Instantiate(_ChunkPrefab);
             newChunk.GetComponent<Chunk>().chunkSpawner = this;
             _InstantiatedChunks.Push(newChunk);
         }
@@ -45,7 +50,7 @@ public class ChunkSpawner : MonoBehaviour
         {
             _SpawnTimer = 0;
             SpawnChunk();
-            _CurrentSeparationDistance = Mathf.Clamp(--_CurrentSeparationDistance, _MinimumSeparationDistance, _CurrentSeparationDistance);
+            _CurrentSeparationDistance = Random.Range(_MinimumSeparationDistance, _MaximumSeparationDistance);
         }
     }
 

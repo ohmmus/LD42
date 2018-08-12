@@ -5,7 +5,7 @@ public class OUButton : MonoBehaviour
 {
     public void OnMouseUp()
     {
-        TimeAuthority.ToggleTimeFrozen();
+        //TimeAuthority.ToggleTimeFrozen();
     }
 
     public void OnMouseDown()

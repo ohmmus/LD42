@@ -339,3 +339,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _TopWall: {fileID: 4057579958299042}
   _BottomWall: {fileID: 4413794070740964}
+  _DebrisPrefab: {fileID: 1046394655818302, guid: d531e2e81dad1274cb70bf9163ec57de,
+    type: 2}

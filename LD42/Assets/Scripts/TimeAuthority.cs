@@ -31,4 +31,9 @@ public class TimeAuthority
     {
         _timeFrozen = !_timeFrozen;
     }
+
+    public static bool timeFrozen
+    {
+        set { _timeFrozen = value; }
+    }
 }

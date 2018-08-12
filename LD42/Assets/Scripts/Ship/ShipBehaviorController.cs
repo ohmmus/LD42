@@ -20,6 +20,9 @@ public class ShipBehaviorController : MonoBehaviour
 
     private void Update()
     {
+        // Mechanic test: Hold down Space to freeze time. 
+        TimeAuthority.timeFrozen = Input.GetKey(KeyCode.Space);
+
         Vector3 shipPos = _TransformComponent.position;
 
         shipPos += _TransformComponent.right * _ThrustForce * TimeAuthority.DeltaTime;
@@ -30,6 +33,8 @@ public class ShipBehaviorController : MonoBehaviour
 
         _PitchingUp = false;
         _PitchingDown = false;
+
+      
 
         if (Input.GetKey(KeyCode.UpArrow) && TimeAuthority.DeltaTime == 0)
         {

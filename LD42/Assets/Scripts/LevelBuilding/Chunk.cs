@@ -11,7 +11,7 @@ public class Chunk: MonoBehaviour
 
     [SerializeField]
     private Transform _BottomWall = null;
-
+    
     private float _LifeTimer = 0;
     private float _LifeTimeDuration = 5.0f;
 
@@ -21,6 +21,11 @@ public class Chunk: MonoBehaviour
         {
             _ChunkSpawner = value;
         }
+    }
+
+    public void Start()
+    {
+        gameObject.SetActive(false);
     }
 
     public void Randomize(float currentSeparation)
