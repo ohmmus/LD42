@@ -83,7 +83,6 @@ public class ShipBehaviorController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("SHIP HIT " + other.name);
         SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 }

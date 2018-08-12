@@ -300,6 +300,7 @@
     <Compile Include="Assets\Scripts\Obstacles\Obstacle.cs" />
     <Compile Include="Assets\Scripts\Obstacles\ObstacleSpawner.cs" />
     <Compile Include="Assets\Scripts\Obstacles\ShatterPiece.cs" />
+    <Compile Include="Assets\Scripts\ScoreKeeper.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipBehaviorController.cs" />
     <Compile Include="Assets\Scripts\TimeAuthority.cs" />
     <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
