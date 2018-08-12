@@ -6,7 +6,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     private float _SpawnXPos = 150.0f;
-    private float _SpawnRate = 1.0f;
+    private float _SpawnRate = 0.35f;
 
     private float _SpawnTimer = 0;
 
@@ -25,7 +25,7 @@ public class ObstacleSpawner : MonoBehaviour
         _InstantiatedObstacles = new Stack<GameObject>();
         _SpawnXPos = transform.position.x;
 
-        for (int i = 0; i < 50; i++)
+        for (int i = 0; i < 100; i++)
         {
             GameObject newObstacle = Instantiate(_ObstaclePrefab);
             newObstacle.GetComponent<Obstacle>().obstacleSpawner = this;

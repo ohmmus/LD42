@@ -18,7 +18,7 @@ public class ChunkSpawner : MonoBehaviour
 
     private Stack<GameObject> _InstantiatedChunks = null;
 
-    private float _MinimumSeparationDistance = 20;
+    private float _MinimumSeparationDistance = 60;
     private float _MaximumSeparationDistance = 70;
 
     protected void Start()
@@ -26,7 +26,7 @@ public class ChunkSpawner : MonoBehaviour
         _InstantiatedChunks = new Stack<GameObject>();
         _ChunkSpawnTransform = transform;
 
-        for (int i = 0; i < 30; i++)
+        for (int i = 0; i < 150; i++)
         {
             GameObject newChunk = Instantiate(_ChunkPrefab);
             newChunk.GetComponent<Chunk>().chunkSpawner = this;

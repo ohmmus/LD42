@@ -301,6 +301,7 @@
     <Compile Include="Assets\Scripts\Obstacles\ShatterPiece.cs" />
     <Compile Include="Assets\Scripts\Ship\ShipBehaviorController.cs" />
     <Compile Include="Assets\Scripts\TimeAuthority.cs" />
+    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\OUButton.cs" />
     <Compile Include="Assets\Scripts\VFX\ParticleSystemTimeController.cs" />
   </ItemGroup>
