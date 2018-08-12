@@ -5,14 +5,11 @@ using UnityEngine;
 public class ChunkSpawner : MonoBehaviour
 {
     [SerializeField]
-    private float _StartingSeparationDistance = 1.0f;
-
-    [SerializeField]
     private GameObject _ChunkPrefab = null;
 
     private Transform _ChunkSpawnTransform = null;
 
-    private float _CurrentSeparationDistance = 50.0f;
+    private float _CurrentSeparationDistance = 50.0f; 
 
     [SerializeField]
     private float _SpawnRate = 1.0f;
@@ -23,11 +20,6 @@ public class ChunkSpawner : MonoBehaviour
 
     private float _MinimumSeparationDistance = 20;
     private float _MaximumSeparationDistance = 70;
-
-
-    [SerializeField]
-    private GameObject _DebrisPrefab = null;
-    private GameObject _InstantiatedDebris = null;
 
     protected void Start()
     {

@@ -24,7 +24,6 @@ public class GrowthController : MonoBehaviour
         if (_ScaleFactor < _ScaleFactorMax)
         {
             _ScaleFactor += TimeAuthority.DeltaTime * _ScaleRate;
-
             _Scale = new Vector3(_ScaleFactor, _ScaleFactor, _ScaleFactor);
             transform.localScale = _Scale;
         }

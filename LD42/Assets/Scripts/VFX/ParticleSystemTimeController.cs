@@ -9,7 +9,6 @@ public class ParticleSystemTimeController : MonoBehaviour
 
     private void Update()
     {
-
         _particleSystem.Play(true);
 
         if (TimeAuthority.DeltaTime == 0.0f)

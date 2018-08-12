@@ -2,9 +2,8 @@
 
 public class ShipBehaviorController : MonoBehaviour
 {
-    private Rigidbody _ShipRB = null;
     private Transform _TransformComponent = null;
-    private float _ThrustForce = 90.5f;
+    private float _ThrustForce = 70.0f;
     private float _PitchAngle = 0.0f; // 0 is horizontal.
 
     private float _PitchRate = 85.0f;
@@ -14,7 +13,6 @@ public class ShipBehaviorController : MonoBehaviour
 
     private void Start()
     {
-        _ShipRB = GetComponent<Rigidbody>();
         _TransformComponent = transform;
     }
 
@@ -33,8 +31,6 @@ public class ShipBehaviorController : MonoBehaviour
 
         _PitchingUp = false;
         _PitchingDown = false;
-
-      
 
         if (Input.GetKey(KeyCode.UpArrow) && TimeAuthority.DeltaTime == 0)
         {
