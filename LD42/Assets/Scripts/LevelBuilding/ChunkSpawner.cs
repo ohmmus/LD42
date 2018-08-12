@@ -18,8 +18,8 @@ public class ChunkSpawner : MonoBehaviour
 
     private Stack<GameObject> _InstantiatedChunks = null;
 
-    private float _MinimumSeparationDistance = 60;
-    private float _MaximumSeparationDistance = 70;
+    private float _MinimumSeparationDistance = 80;
+    private float _MaximumSeparationDistance = 90;
 
     protected void Start()
     {
@@ -32,6 +32,8 @@ public class ChunkSpawner : MonoBehaviour
             newChunk.GetComponent<Chunk>().chunkSpawner = this;
             _InstantiatedChunks.Push(newChunk);
         }
+
+        _CurrentSeparationDistance = Random.Range(_MinimumSeparationDistance, _MaximumSeparationDistance);
     }
 
     protected void Update()

@@ -21,7 +21,11 @@ public class ShipBehaviorController : MonoBehaviour
     private bool _TimeFrozenLastFrame = false;
     private bool _IsDying = false;
 
-    private AudioSource _ShipAudioSource = null;
+    public AudioSource _ShipAudioSource = null;
+
+
+    public AudioSource _MusicAudioSource = null;
+
     public AudioClip TimeSpeedUp = null;
     public AudioClip TimeSlowDown = null;
     public AudioClip ShipExplode = null;
@@ -47,10 +51,12 @@ public class ShipBehaviorController : MonoBehaviour
         {
             // UNFREEZING
             _ShipAudioSource.PlayOneShot(TimeSpeedUp);
+            _MusicAudioSource.pitch = 1.0f;
         }
         else if (!_TimeFrozenLastFrame && TimeAuthority.timeFrozen)
         {
             _ShipAudioSource.PlayOneShot(TimeSlowDown);
+            _MusicAudioSource.pitch = 0.45f;
         }
 
         Vector3 shipPos = _TransformComponent.position;

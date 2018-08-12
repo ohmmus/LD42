@@ -18,7 +18,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     private Stack<GameObject> _InstantiatedObstacles = null;
     private bool _AllowObstacleSpawns = false;
-    private float _ObstacleSpawnDelay = 3.5f; // Seconds between game start and first obstacles start to spawn.
+    private float _ObstacleSpawnDelay = 5.0f; // Seconds between game start and first obstacles start to spawn.
 
     protected void Start()
     {
@@ -47,7 +47,7 @@ public class ObstacleSpawner : MonoBehaviour
 
         _SpawnTimer += TimeAuthority.DeltaTime;
 
-        if (_SpawnTimer >= _SpawnRate)
+        if (_AllowObstacleSpawns && _SpawnTimer >= _SpawnRate)
         {
             _SpawnTimer = 0;
             SpawnObstacle();
